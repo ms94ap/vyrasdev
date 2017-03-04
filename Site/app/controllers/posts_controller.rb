@@ -1,4 +1,7 @@
 class PostsController < ApplicationController
+	# before_action :require_login
+	# skip_before_action :require_login, only: [:index, :show]
+
 	def index
 		@posts = Post.all
 		render json: @posts
@@ -35,6 +38,10 @@ class PostsController < ApplicationController
 
 	def posts_params
 		params.require(:post).permit(:name)
-	end 	
+	end
+
+	# def require_login
+ #    return head(:forbidden) unless session.include? :user_id
+ #  end
 
 end
