@@ -1,6 +1,4 @@
 class PostsController < ApplicationController
-	# before_action :require_login
-	# skip_before_action :require_login, only: [:index, :show]
 
 	def index
 		@posts = Post.all
@@ -37,11 +35,7 @@ class PostsController < ApplicationController
 	private
 
 	def posts_params
-		params.require(:post).permit(:name)
+		params.require(:post).permit(:name, categories_attributes: [:type], tag_attributes: [:name])
 	end
-
-	# def require_login
- #    return head(:forbidden) unless session.include? :user_id
- #  end
 
 end
