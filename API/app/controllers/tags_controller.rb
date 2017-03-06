@@ -17,7 +17,11 @@ class TagsController < ApplicationController
 
 	def create
 		@tag = Tag.new(tag_params)
-		render json: @tag
+		if @tag.save
+			render json: @tag
+		else
+			@tag.errors
+		end
 	end
 
 	def edit
@@ -40,7 +44,7 @@ class TagsController < ApplicationController
 	private
 
 	def tag_params
-		params.require(:tag).permit(:name)
+		params.require(:tag).permit(:name, :post_id)
 	end 		
 
 end

@@ -2,7 +2,6 @@ class PagesController < ApplicationController
 
 	def index
 		@pages = Page.all
-		render :index
 	end
 
 	def show
@@ -14,7 +13,7 @@ class PagesController < ApplicationController
 	end
 
 	def create
-		@page = Page.new(page_params)
+		@page = Page.create(page_params)
 	end
 
 	def edit

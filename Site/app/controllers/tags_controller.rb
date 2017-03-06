@@ -13,7 +13,7 @@ class TagsController < ApplicationController
 	end
 
 	def create
-		@tag = Tag.new(tag_params)
+		@tag = Tag.create(tag_params)
 	end
 
 	def edit
@@ -33,7 +33,7 @@ class TagsController < ApplicationController
 	private
 
 	def tag_params
-		params.require(:tag).permit(:name)
+		params.require(:tag).permit(:name, :post_id)
 	end 		
 
 end

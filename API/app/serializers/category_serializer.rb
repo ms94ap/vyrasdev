@@ -1,4 +1,4 @@
 class CategorySerializer < ActiveModel::Serializer
-	attributes :type, :id
+	attributes :name, :id, :post_id
 	belongs_to :posts
 end
