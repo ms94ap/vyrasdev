@@ -1,3 +1,4 @@
-class Category < ActiveResource::Base
-	self.site = "http://localhost:3000/api/categories.json"
+class Category < ApplicationRecord
+	# self.site = "http://localhost:3000/"
+	belongs_to :post
 end

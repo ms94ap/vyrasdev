@@ -7,11 +7,14 @@ class PagesController < ApplicationController
 
 	def show
 		@page = Page.find(params[:id])
-		
+	end
+
+	def new
+		@page = Page.new
 	end
 
 	def create
-		@page = Page.new(pages_param)
+		@page = Page.new(page_params)
 	end
 
 	def edit
@@ -20,7 +23,7 @@ class PagesController < ApplicationController
 
 	def update
 		@page = Page.find_by(params[:id])
-		@page.update(pages_params)
+		@page.update(page_params)
 	end
 
 	def destroy
@@ -30,7 +33,7 @@ class PagesController < ApplicationController
 
 	private
 
-	def pages_params
+	def page_params
 		params.require(:page).permit(:title)
 	end 		
 

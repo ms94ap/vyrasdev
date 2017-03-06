@@ -8,8 +8,12 @@ class TagsController < ApplicationController
 		@tag = Tag.find(params[:id])
 	end
 
+	def new
+		@tag = Tag.new
+	end
+
 	def create
-		@tag = Tag.new(tags_param)
+		@tag = Tag.new(tag_params)
 	end
 
 	def edit
@@ -18,7 +22,7 @@ class TagsController < ApplicationController
 
 	def update
 		@tag = Tag.find_by(params[:id])
-		@tag.update(tags_params)
+		@tag.update(tag_params)
 	end
 
 	def destroy
@@ -28,7 +32,7 @@ class TagsController < ApplicationController
 
 	private
 
-	def tags_params
+	def tag_params
 		params.require(:tag).permit(:name)
 	end 		
 

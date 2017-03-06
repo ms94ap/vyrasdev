@@ -10,8 +10,13 @@ class CategoriesController < ApplicationController
 		render json: @category
 	end
 
+	def new
+		@category = Category.new
+		render json: @category
+	end
+
 	def create
-		@category = Category.new(categories_param)
+		@category = Category.new(category_params)
 		render json: @category
 	end
 
@@ -22,7 +27,7 @@ class CategoriesController < ApplicationController
 
 	def update
 		@category = Category.find_by(params[:id])
-		@category.update(categories_params)
+		@category.update(category_params)
 		render json: @category
 	end
 
@@ -34,8 +39,8 @@ class CategoriesController < ApplicationController
 
 	private
 
-	def categories_params
-		params.require(:category).permit(:type)
+	def category_params
+		params.require(:category).permit(:name)
 	end 		
 
 end

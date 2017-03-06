@@ -1,3 +1,3 @@
 class ApplicationRecord < ActiveResource::Base
-  self.site = "http://localhost:3000/api.json"
+  self.site = "http://localhost:3000/"
 end

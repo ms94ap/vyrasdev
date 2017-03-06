@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-  resources :pages do
+ 	resources :posts do
   end
 
-  resources :posts do
+  resources :pages do
   end
 
   resources :categories do

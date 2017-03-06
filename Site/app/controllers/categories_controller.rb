@@ -6,12 +6,14 @@ class CategoriesController < ApplicationController
 
 	def show
 		@category = Category.find(params[:id])
-		
+	end
+
+	def new
+		@category = Category.new
 	end
 
 	def create
-		@category = Category.new(categories_param)
-		
+		@category = Category.new(category_params)
 	end
 
 	def edit
@@ -21,7 +23,7 @@ class CategoriesController < ApplicationController
 
 	def update
 		@category = Category.find_by(params[:id])
-		@category.update(categories_params)
+		@category.update(category_params)
 	end
 
 	def destroy
@@ -31,8 +33,8 @@ class CategoriesController < ApplicationController
 
 	private
 
-	def categories_params
-		params.require(:category).permit(:type)
+	def category_params
+		params.require(:category).permit(:name)
 	end 		
 
 end

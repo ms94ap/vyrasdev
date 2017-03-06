@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
 
 	def index
-		@posts = Post.order(created_at: :desc).page(params[:page])
+		@posts = Post.all
 		render json: @posts
 	end
 
@@ -16,7 +16,7 @@ class PostsController < ApplicationController
 	end
 
 	def create
-		@post = Post.create(posts_param)
+		@post = Post.create(post_params)
 		render json: @post
 	end
 
@@ -27,7 +27,7 @@ class PostsController < ApplicationController
 
 	def update
 		@post = Post.find_by(params[:id])
-		@post.update(posts_params)
+		@post.update(post_params)
 		render json: @post
 	end
 
@@ -39,8 +39,8 @@ class PostsController < ApplicationController
 
 	private
 
-	def posts_params
-		params.require(:post).permit(:name, categories_attributes: [:type], tag_attributes: [:name])
+	def post_params
+		params.require(:post).permit(:name, categories_attributes: [:name], tag_attributes: [:name])
 	end
 
 end

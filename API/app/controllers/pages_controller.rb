@@ -10,8 +10,13 @@ class PagesController < ApplicationController
 		render json: @page
 	end
 
+	def new
+		@page = Page.new
+		render json: @page
+	end
+
 	def create
-		@page = Page.new(pages_param)
+		@page = Page.new(page_params)
 		render json: @page
 	end
 
@@ -22,7 +27,7 @@ class PagesController < ApplicationController
 
 	def update
 		@page = Page.find_by(params[:id])
-		@page.update(pages_params)
+		@page.update(page_params)
 		render json: @page
 	end
 
@@ -34,7 +39,7 @@ class PagesController < ApplicationController
 
 	private
 
-	def pages_params
+	def page_params
 		params.require(:page).permit(:title)
 	end 		
 
