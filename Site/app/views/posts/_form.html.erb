@@ -1,0 +1,24 @@
+<% if @post.errors.any? %>
+  <div id="error_explanation" class="fields_with_errors">
+    <h2>
+      <%= pluralize(@post.errors.count, "error") %>
+      prohibited this post from being saved:
+    </h2>
+ 
+    <ul>
+    <% @post.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  
+    </ul>
+  </div>
+<% end %>
+
+<%= form_for @post do |f| %>
+  
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+ <!-- testing form -->
+    <%= f.submit %>
+  </div>
+<% end %>
