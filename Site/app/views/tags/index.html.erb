@@ -1,8 +1,7 @@
-<h1>All available tags</h1>
+git <h1>All available tags</h1>
 
 <% @tags.each do |c| %>
 <li><%= c.name %><%=link_to "Edit", edit_tag_path(c) %><%=link_to "Delete", tag_path(c), method: :delete,  data: {:confirm => "Are you sure?"} %></li>  
  
 <%end%>
 
-<%=link_to "New Tag", new_tag_path()%>
