@@ -27,7 +27,7 @@ class CategoriesController < ApplicationController
 
 	def update
 		@category = Category.find_by(params[:id])
-		@category.update(category_params)
+		@category.update_attributes(category_params)
 		render json: @category
 	end
 
@@ -40,7 +40,7 @@ class CategoriesController < ApplicationController
 	private
 
 	def category_params
-		params.require(:category).permit(:name, :post_id)
+		params.require(:category).permit(:name)
 	end 		
 
 end

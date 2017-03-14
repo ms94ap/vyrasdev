@@ -14,6 +14,7 @@ class PostsController < ApplicationController
 
 	def create
 		@post = Post.create(post_params)
+		redirect_to post_path(@post)
 	end
 
 	def edit
@@ -22,18 +23,21 @@ class PostsController < ApplicationController
 
 	def update
 		@post = Post.find_by(params[:id])
-		@post.update(post_params)
+		@post.update_attrinutes(post_params)
+		redirect_to post_path(@post)
 	end
 
 	def destroy
-		@post = Post.find_by(params[:id])
+		@post = Post.find(params[:id])
 		@post.destroy
+		redirect_to posts_path
+
 	end
 
 	private
 
 	def post_params
-		params.require(:post).permit(:name, categories_attributes: [:name, :post_id], tag_attributes: [:name, :post_id])
+		params.require(:post).permit(:name, :category_id, tag_attributes: [:name, :post_id])
 	end
 
 end

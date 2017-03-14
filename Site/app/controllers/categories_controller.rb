@@ -14,16 +14,18 @@ class CategoriesController < ApplicationController
 
 	def create
 		@category = Category.create(category_params)
+		redirect_to categories_path(@category)
 	end
 
 	def edit
-		@category = Category.find_by(params[:id])
-		
+		@category = Category.find(params[:id])
+		# redirect_to categories_path(@category), notice: "#{@category.name} category created!!!"
 	end
 
 	def update
-		@category = Category.find_by(params[:id])
+		@category = Category.find(params[:id])
 		@category.update(category_params)
+		redirect_to categories_path(@category)
 	end
 
 	def destroy
@@ -34,7 +36,7 @@ class CategoriesController < ApplicationController
 	private
 
 	def category_params
-		params.require(:category).permit(:name, :post_id)
+		params.require(:category).permit(:name)
 	end 		
 
 end

@@ -17,17 +17,18 @@ class TagsController < ApplicationController
 	end
 
 	def edit
-		@tag = Tag.find_by(params[:id])
+		@tag = Tag.find(params[:id])
 	end
 
 	def update
-		@tag = Tag.find_by(params[:id])
+		@tag = Tag.find(params[:id])
 		@tag.update(tag_params)
 	end
 
 	def destroy
-		@tag = Tag.find_by(params[:id])
+		@tag = Tag.find(params[:id])
 		@tag.destroy
+		redirect_to tags_path(@tag)
 	end
 
 	private

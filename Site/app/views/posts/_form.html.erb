@@ -14,11 +14,13 @@
   </div>
 <% end %>
 
-<%= form_for @post do |f| %>
-  
+<%= form_for :post do |f| %>
+  <div>
     <%= f.label :name %>
+    
     <%= f.text_field :name %>
- <!-- testing form -->
+    <%= @post.inspect %>
+ </div>
     <%= f.submit %>
-  </div>
+
 <% end %>

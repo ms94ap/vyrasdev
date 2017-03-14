@@ -1,5 +1,5 @@
 class Post < ApplicationRecord
-	has_many :categories
+	belongs_to :categories
 	has_one :tag
-	accepts_nested_attributes_for :categories, :tag
+	accepts_nested_attributes_for :tag
 end

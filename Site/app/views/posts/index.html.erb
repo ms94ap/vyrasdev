@@ -1,1 +1,11 @@
 <h1>These are the posts</h1>
+
+<ul>
+  	<% @posts.each do |p| %>
+  	<li><h3>Title: <%=  link_to p.name, post_path(p) %></h3>
+  	<%=link_to "Delete Post", post_path(p), method: :delete, data: { confirm: "Really?" }%>
+
+  	</li>
+  	<% end %>
+
+  </ul>

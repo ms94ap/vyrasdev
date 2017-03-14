@@ -3,7 +3,12 @@ Rails.application.routes.draw do
 	end
 
 	resources :posts do
-		resources :categories, :tags
+	end
+
+	resources :categories do
+	end
+
+	resources :tags do
 	end
 
 

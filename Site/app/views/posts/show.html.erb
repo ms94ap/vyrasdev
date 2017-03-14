@@ -1,9 +1,9 @@
-<ul>
-  	<% @post.each do |p| %>
-  	<li><%= p.name %></li>
-  	<% end %>
+<h1>The post</h1>
 
-  </ul>
+<div><h3>Title:<%= @post.name %></h3></div>
+<div><h3>Category: <%= @category.name %></h3></div>
+<div><h3>Tag: <%= @post.tag %></h3></div>
 
   <%= link_to "Back to posts", posts_path%>
   <p>
+
